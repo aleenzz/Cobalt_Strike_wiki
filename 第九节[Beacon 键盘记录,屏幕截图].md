@@ -1,4 +1,4 @@
-#0x00 Beacon 键盘记录
+# 0x00 Beacon 键盘记录
 Beacon提供的键盘记录个人感觉还是比较强大
 
 ```
@@ -32,7 +32,7 @@ beacon> keylogger 2460
 这里需要注意一下你的注入User是你想记录的用户进程
 
 
-#0x01 Screenshost
+# 0x01 Screenshost
 
 ```
 beacon> screenshot 1344 x86 90
@@ -70,7 +70,7 @@ beacon> jobkill 5
 [+] host called home, sent: 10 bytes
 ```
 
-#0x02 文末
+# 0x02 文末
 貌似Cobalt Strike 截图的时候目标系统会有明显的卡顿，还有个远控功能还是建议大家别用不是很好（用时半小时）
 
 ### 本文如有错误，请及时提醒，以免误导他人
