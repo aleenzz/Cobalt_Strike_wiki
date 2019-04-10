@@ -178,7 +178,7 @@ void main()
 
 
 
-![Cobalt Strike ](./img/2.1.2.png)
+![Cobalt Strike ](./img/2.2.2.png)
 
 
 # 0x01 配合msf shellcode
@@ -217,7 +217,7 @@ void main()
 其实就是个免杀msf shellcode 只是引用一个思路，为什么要讲这个呢，这就是利用编码器编码shellcode来免杀，但是这些特征已被入库。
 
 
-![Cobalt Strike ](./img/2.1.1.png)
+![Cobalt Strike ](./img/2.2.1.png)
 
 
 # 0x02 文末
