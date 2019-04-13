@@ -160,28 +160,28 @@ Beacon的默认值,分为全局和本地,全局更改Beacon的设置，本地用
 
 Option | Context | Default Value | Changes 
 -|-|-|-|
-amsi_disable    |    false  | (Attempt to) disable AMSI for execute-assembly, powerpick, and psinject
-dns_idle    |    0.0.0.0 | IP address used to indicate no tasks are available to DNS Beacon; Mask for other DNS C2 values
-dns_max_txt  |   252   | Maximum length of DNS TXT responses for tasks
-dns_sleep    |   0  | Force a sleep prior to each individual DNS request. (in milliseconds)
-dns_stager_prepend    |   null  |    Prepend text to payload stage delivered to DNS TXT record stager
-dns_stager_subhost   |   .stage.123456.    | Subdomain used by DNS TXT record stager.
-dns_ttl  |   1    |  TTL for DNS replies
-host_stage      |   true     |  Host payload for staging over HTTP, HTTPS, or DNS. Required by stagers.
-jitter      |   0     | Default jitter factor (0-99%)
-maxdns      |   255   | Maximum length of hostname when uploading data over DNS (0-255)
-pipename       |    msagent_##   |  Name of pipe to use for SMB Beacon's peer-to-peer communication. ## is replaced with a number unique to your team server.
-pipename_stager    |    status_##    |  Name of pipe to use for SMB Beacon's named pipe stager. ## is replaced with a number.
-sample_name     |   My Profile   |  The name of this profile (used in the Indicators of Compromise report)
-sleeptime       |   60000     | Default sleep time (in milliseconds)
-spawnto_x86     |   %windir%\syswow64\rundll32.exe   |  Default x86 program to open and inject shellcode into
-spawnto_x64       | %windir%\sysnative\rundll32.exe  |  Default x64 program to open and inject shellcode into
-tcp_port        |   4444     |  TCP Beacon listen port
-uri   | http-get,http-post    |  [required option]   Transaction URI
-uri_x86   | http-stager    |    x86 payload stage URI
-uri_x64   | http-stager    |    x64 payload stage URI
-useragent     |     Internet Explorer (Random)   |  Default User-Agent for HTTP comms.
-verb     |  http-get,http-post   GET,POST     |  HTTP Verb to use for transaction
+amsi_disable  | null  |    false  | (Attempt to) disable AMSI for execute-assembly, powerpick, and psinject
+dns_idle    | null |    0.0.0.0 | IP address used to indicate no tasks are available to DNS Beacon; Mask for other DNS C2 values
+dns_max_txt  | null |   252   | Maximum length of DNS TXT responses for tasks
+dns_sleep    | null |   0  | Force a sleep prior to each individual DNS request. (in milliseconds)
+dns_stager_prepend   | null  |   null  |    Prepend text to payload stage delivered to DNS TXT record stager
+dns_stager_subhost   | null |   .stage.123456.    | Subdomain used by DNS TXT record stager.
+dns_ttl  | null |   1    |  TTL for DNS replies
+host_stage   | null    |   true     |  Host payload for staging over HTTP, HTTPS, or DNS. Required by stagers.
+jitter     | null  |   0     | Default jitter factor (0-99%)
+maxdns     | null  |   255   | Maximum length of hostname when uploading data over DNS (0-255)
+pipename     | null   |    msagent_##   |  Name of pipe to use for SMB Beacon's peer-to-peer communication. ## is replaced with a number unique to your team server.
+pipename_stager  | null   |    status_##    |  Name of pipe to use for SMB Beacon's named pipe stager. ## is replaced with a number.
+sample_name   | null   |   My Profile   |  The name of this profile (used in the Indicators of Compromise report)
+sleeptime     | null   |   60000     | Default sleep time (in milliseconds)
+spawnto_x86   | null   |   %windir%\syswow64\rundll32.exe   |  Default x86 program to open and inject shellcode into
+spawnto_x64   | null     | %windir%\sysnative\rundll32.exe  |  Default x64 program to open and inject shellcode into
+tcp_port     | null    |   4444     |  TCP Beacon listen port
+uri   | http-get,http-post    |  [required option]  |   Transaction URI
+uri_x86   | http-stager    |  | null |  x86 payload stage URI
+uri_x64   | http-stager    |   | null | x64 payload stage URI
+useragent    |null  |     Internet Explorer (Random)   |  Default User-Agent for HTTP comms.
+verb     |  http-get,http-post   | GET,POST     |  HTTP Verb to use for transaction
 
 
 以上都是简单的英语我也就懒的翻译了,使用URI可以将多个URI 指定为一个空格分隔的字符串,CS会自己处理。
