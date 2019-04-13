@@ -178,8 +178,8 @@ spawnto_x86   | null   |   %windir%\syswow64\rundll32.exe   |  Default x86 progr
 spawnto_x64   | null     | %windir%\sysnative\rundll32.exe  |  Default x64 program to open and inject shellcode into
 tcp_port     | null    |   4444     |  TCP Beacon listen port
 uri   | http-get,http-post    |  [required option]  |   Transaction URI
-uri_x86   | http-stager    |  | null |  x86 payload stage URI
-uri_x64   | http-stager    |   | null | x64 payload stage URI
+uri_x86   | http-stager      | null |  x86 payload stage URI
+uri_x64   | http-stager      | null | x64 payload stage URI
 useragent    |null  |     Internet Explorer (Random)   |  Default User-Agent for HTTP comms.
 verb     |  http-get,http-post   | GET,POST     |  HTTP Verb to use for transaction
 
