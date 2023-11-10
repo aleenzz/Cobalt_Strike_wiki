@@ -28,7 +28,7 @@ Beacon中的http通讯由Malleable-C2配置文件，在启动teamserver时来指
 
 在GitHub上给我们提供了许多写好的脚本 https://github.com/rsmudge/Malleable-C2-Profiles
 
-我们选取一个来通过Wrueshark 抓包看看CS自带通讯特征
+我们选取一个来通过Wireshark 抓包看看CS自带通讯特征
 
 ![Cobalt Strike ](./img/3.1.1.png)
 
